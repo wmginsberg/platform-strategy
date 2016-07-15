@@ -411,7 +411,7 @@
       }).join('');
       let url = `${window.location.hostname}${window.location.pathname}?answers=${answersInBinary}`;
       document.querySelector('#share').innerHTML = `
-      <p>Share this report: <a href=${url}>${url}</a></p>
+      <p>Share this report: <a href='//${url}'>${url}</a></p>
       `
 
       window.scrollTo(0,document.body.scrollHeight);
