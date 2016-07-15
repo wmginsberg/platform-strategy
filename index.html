@@ -9,7 +9,7 @@
       margin: 0 auto;
     }
     table {
-      background-color: #f5f5ff;
+      background-color: #eaf9ff;
       padding: 15px
     }
     td {
@@ -31,6 +31,8 @@
     .hint {
       color: gray;
       font-style: italic;
+      margin-top: 7px;
+      margin-bottom: 5px;
     }
     input[type='submit'] {
       background-color: #4CAF50; /* Green */
@@ -47,13 +49,16 @@
 </head>
 <body>
   <h1>Should I build an app for that?</h1>
-  <p>The right platform strategy depends entirely on each company. Building native iOS and Android apps is often the assumed path, but may not be the optimal one for your company.</p>
-  <p>Answer these 8 questions about your product and this page will show you a detailed report recommending the right platform strategy for you.</p>
+  <p>The right platform strategy depends entirely on your company. Building iOS and Android apps is attractive but often <i>not the optimal strategy for your product</i>.</p>
+  <p><b>TL;DR</b> - If you take one thing away from this page, it's that native apps are only a good strategy if your product benefits from reaching a smaller number of highly engaged users, but web apps are best for reaching a large number of less engaged users.  In most cases the optimal strategy combines these platforms. Note that most highly successful products (Facebook, Instagram, Google Maps, Twitter etc) use strategies that combine the strengths of the web and native apps.</p>
+  <p>Answer these 8 questions about your product (existing or idea) and this page will show you a detailed report recommending the right platform strategy for you.</p>
+  <p>If you're not sure about any answer feel free to try answering in both ways and then compare the advice!</p>
   <table>
     <tr>
       <td class='question-number'>1.</td>
-      <td>Do you realistically expect a large percentage of your target users will use your product multiple times a week, and do you expect good retention within that group?
-      <p class='hint'>Hint: Also choose yes if your users become more valuable to your product over time (e.g. fremium businesses, messaging)</p></td>
+      <td>Could lots of users get value from using your service or accessing your content only once or twice?
+      <!-- Do you realistically expect a large percentage of your target users will use your product multiple times a week, and do you expect good retention within that group? -->
+      <p class='hint'>Hint: If your users become dramatically more valuable to your product over time, the answer is probably no (e.g. fremium businesses, messaging)</p></td>
       <td>
         <input type='checkbox' />
       </td>
@@ -92,7 +97,7 @@
     <tr>
       <td class='question-number'>6.</td>
       <td>Do browsers on Android have all the capabilities you need for the core functionality of your product?
-      <p class='hint'>Hint: On Android, should should assume browsers can provide you access to the camera, geolocation, accellerometer, offline and push notifications.</p></td>
+      <p class='hint'>Hint: On Android, should should assume browsers can provide you access to the camera, microphone, geolocation, accellerometer, offline and push notifications.</p></td>
       <td>
         <input type='checkbox' />
       </td>
@@ -107,7 +112,7 @@
     <tr>
       <td class='question-number'>8.</td>
       <td>Is your product in a crowded space where the consumer will also want to interact with a number of your competitors?
-      <p class='hint'>Hint: newspapers, airlines are clear fits here</p></td>
+      <p class='hint'>Hint: e.g. newspapers, stores etc</p></td>
       <td>
         <input type='checkbox' />
       </td>
@@ -119,7 +124,7 @@
   <script type='text/javascript'>
     document.querySelector('input[type="submit"]').addEventListener('click', () => {
       let inputs = document.querySelectorAll('input[type="checkbox"]');
-      let terminatingAnswers = [false, false, true, true, true, false, true];
+      let terminatingAnswers = [true, false, true, true, true, false, true];
       let answers = [];
       [].forEach.call(inputs, (input) => {
         answers.push(input.checked);
@@ -151,15 +156,17 @@
         // If the web has the features you need
         if (answers[5]) {
           summary += `Build a web app`;
-          reasoning += `We recommend you build a web app. While a native app may provide a higher quality user experience, ComScore numbers indicate it will likely limit your reach to approximately a 4X smaller group of users. Web app users are less engaged than native app users, but for your use case it sounds like reaching approximately 4X more monthly users is more important than increasing repeat usage amongst your power users, and the lack of an install step on the web will enable that.
+          reasoning += `We recommend you build a web app. While building a native app may be more exciting, ComScore numbers indicate it will likely limit your reach to approximately a 3X smaller group of monthtly users (<a href='http://www.slideshare.net/VictorKongCisneros/the-2015-us-mobile-app-report-by-comscore/17' target='_blank'>source</a>). While users that would install your native app would be more engaged than web app users, for your use case it sounds like reaching approximately 3X more monthly users is more important than increasing repeat usage amongst your power users, and the lack of an install step on the web will enable that.
 
-          You may want to consider building your web app as a Progressive Web App, allowing you to provide a more-app like experience. Progressive Web Apps are able to send Android users push notifications just like native apps and can prompt users to add it to their home screen, providing much of the benefit of a native app.
+          You may want to consider building your web app as a Progressive Web App, allowing you to provide a more-app like experience. Progressive Web Apps are able to send Android and desktop users push notifications just like native apps and can prompt Android users to add it to their home screen, providing much of the high engagement benefit of an Android native app.
 
           `;
           rec = recs.web;
         } else {
-          summary += `Reconsider your idea`;
-          reasoning += `It sounds like your product is one which benefits from reaching lots of users easily, rather than reaching a very small group and engaging them deeply. Given that, we'd normally recommend building a web app due to the low friction of the web (thanks to lack of install step), but unfortunately it sounds like there's some feature you need that web browsers on Android can't currently provide (it's worth double checking this since they often support a lot more than you may think).
+          summary += `Potentially reconsider your idea`;
+          reasoning += `No tool like this can fully understand your specific idea, so they key takeaway is to consider the above questions whenever making platform decisions, but based on our analysis you may want to reconsider some aspects of your idea.
+
+          It sounds like your product is one which benefits from reaching lots of users easily, rather than reaching a very small group and engaging them deeply. Given that, we'd normally recommend building a web app due to the low friction of the web (thanks to lack of install step), but unfortunately it sounds like there's some feature you need that web browsers on Android can't currently provide (it's worth double checking this since they often support a lot more than you may think).
 
           Native apps aren't generally a good match for more transactional products since the aquisition funnel with apps cuts out a huge number of potential customers, and as your use case doesn't benefit greatly from re-engaging existing users it won't be possible to make up for that loss of users with increased engagement from your app users.
 
@@ -203,7 +210,7 @@
           If building for the web and iOS (and potentially additionally Android) is too expensive you may want to consider investing fully in your Progressive Web App and then encouraging your iOS users to add it to their home screen.
 
           `;
-          summary += `Build a Progressive Web App and an iOS native app`;
+          summary += `Build an iOS native app and a Progressive Web App`;
           rec = recs.webAndiOSAndAndroidOrPWA;
         } else {
           reasoning += `If you build your site as a Progressive Web App then you will be able to use push notifications and prompt your Android users to add it to their home screen without needing to build a separate app.
@@ -225,7 +232,7 @@
           You could consider also building an Android app although it will be important to weigh the additional cost of building for a third platforms against the additional value the native app could provide for your most passionate Android users over investing the same effort into improving your Progressive Web App which impacts all of your users.
 
           `;
-          summary += `Build a Progressive Web App and an iOS native app`;
+          summary += `Build an iOS native app and a Progressive Web App`;
           rec = recs.webAndiOSAndAndroidOrPWA;
         } else {
           reasoning += `On the other hand, given the high levels of engagement you hope for from your most engaged users, it will likely also be important to provide them something they can launch from their home screen and a way to get push notifications.
@@ -243,7 +250,7 @@
 
           We'd recommend building an iOS app and either a Progressive Web App or a native Android app. Both a Progressive Web App and an Android app will allow the user to easily add the icon to their home screen which will drive engagement and repeat usage. The benefit of a Progressive Web App is that it also gives users on any platform the chance to try your app before installing it, while it may be easier to provide a more polished user experience with an Android app.
 
-          Data from ComScore indicates that the top 1000 mobile web sites reach 4X more monthly active users than the top 1000 apps, so we believe a Progressive Web App that encourages iOS users to install the iOS app, and Android users to add the Progressive Web App to their home screen is likely the best strategy.
+          Data from ComScore indicates that the top 1000 mobile web sites reach 3X more monthly active users than the top 1000 apps (<a href='http://www.slideshare.net/VictorKongCisneros/the-2015-us-mobile-app-report-by-comscore/17' target='_blank'>source</a>), so we believe a Progressive Web App that encourages iOS users to install the iOS app, and Android users to add the Progressive Web App to their home screen is likely the best strategy.
 
           `;
           summary += `Build an iOS app and a Progressive Web App`;
@@ -251,7 +258,7 @@
         } else {
           reasoning += `As most of your users have already made a large committment to your company the friction associated with installing an app is less of a concern that it often is.
 
-          Since you expect to drive the majority of your engagement from a small number of highly engaged users, building an app is a good fit.
+          Since your product is optimized for highly engaged users it seems optimal to reach a smaller group of highly engaged users rather than a large group of less engaged users, hence building an app is a good fit.
 
           To support multiple platforms but keep down the costs we recommend you build a hybrid app. These generally provide a less polished user experience, but are a cheap way of bringing a product to market.
 
@@ -266,7 +273,7 @@
         if (!answers[7]) {
           // if can afford to build for two platforms
           if (answers[6]) {
-            reasoning += `Since the functionality you need isn't available on the web you will need to build native apps for Android and iOS.
+            reasoning += `Since the functionality you need isn't available on the web should build native apps for Android and iOS.
 
             We'd recommend considering React Native as a way for your developers to learn one set of technologies that they can use to build both your Android and iOS apps. React Native apps use native UI controls and feel highly polished, unlike hybrid apps which are an even cheaper way of building apps that work across both Android and iOS, but at the expense of high quality UX.
 
@@ -274,7 +281,7 @@
             summary += `Build native apps for Android and iOS`;
             rec = recs.androidAndiOS;
           } else {
-            reasoning += `Since the functionality you need isn't available on the web you will need to build native apps.
+            reasoning += `Since the functionality you need isn't available on the web should build native apps.
 
             With limited engineering resources we'd recommend starting with an iOS app since iOS users are generally more affluent and therefore both spend more money and are more valuable to advertisers.
 
@@ -291,22 +298,22 @@
           `
         }
       } else if (terminatedAt === 6) {
-        reasoning += `Since you expect a small group of highly engaged users to make up the most of your value and engagement, it will be important to ensure those users are able to get your app on their home screen and receive push notifications.
+        reasoning += `It sounds like your product is optimized for highly-engaged users, so it's better to optimize to reach fewer highly engaged users than a larger number of less engaged users. To enable that group of passionate users to be highly engagaed it will be important to ensure those users are able to get your app on their home screen and receive push notifications.
 
         The most obvious choice would be to build iOS and Android apps, although you may want to consider the high friction associated with trying to get users to install your app (which results in high user aquisition costs in app install ads).
 
-        A possible alternate approach is to build a Progressive Web App and an iOS app. Progressive Web Apps allow you build a high quality app-like experience that would allow users on any platform to try your service with none of the install-time friction associated with app installs.
+        A possible alternate approach is to build an iOS app and a Progressive Web App. Progressive Web Apps allow you build a high quality app-like experience that would allow users on any platform to try your service with none of the install-time friction associated with app installs.
 
-        On Android you can then have your Progressive Web App prompt your more dedicated users to add it to their home screen, and to enable push notifications. That approach allows you to target your power users with an installed app-like experience, while allowing users that would never choose to install you to engage more lightly.
+        On Android you can then have your Progressive Web App act as a way to get a large number of users to try your product, and then prompt those users to add it to their home screen and to enable push notifications. That approach allows you to target your power users with an installed app-like experience, while providing a smoother aquisition funnel and allowing users that would simply don't want to install your app to engage more lightly.
 
         `
-        summary += `Build a Prgressive Web App and an iOS app`;
+        summary += `Build an iOS app and a Progressive Web App`;
         rec = recs.webAndiOSAndPWAAndConsiderAndroid;
       } else if (terminatedAt === 7) {
         if (answers[7]) {
           reasoning += `Your product is in a tough situation since it benefits most from having a small group of highly engaged users rather than a large group of less engaged users, which would normally suggest an app strategy, but users are unlikely to want to install your app since it doesn't make sense for them to have so many apps for you and your competitors on their device. Most likely those users will want to use an aggregator that aggregates your content or service with your competitors in a single app.
 
-          Given that users will likely be reluctant to install your app, we recommend you build a web app. Web app users are on average less engaged, but that is made up for by the fact that that you will get far more of them since they don't have to make it over the 'install barrier' associated with apps. ComScore reasoninged that the top 1000 mobile web apps receive almost 4X more monthly users than the top 1000 mobile web sites, so the potential for traffic is large.
+          Given that users will likely be reluctant to install your app, we recommend you build a web app. Web app users are on average less engaged, but that is made up for by the fact that that you will get far more of them since they don't have to make it over the 'install barrier' associated with apps. ComScore reasoninged that the top 1000 mobile web apps receive almost 3X more monthly users than the top 1000 mobile web sites (<a href='http://www.slideshare.net/VictorKongCisneros/the-2015-us-mobile-app-report-by-comscore/17' target='_blank'>source</a>), so the potential for traffic is large.
 
           We recommend you investigate Progressive Web App technologies, as they will allow you to build a native-quality user experience on the web.
 
@@ -314,13 +321,13 @@
           summary += `Build a web app`;
           rec = recs.web;
         } else {
-          reasoning += `Since you expect a small group of highly engaged users to make up the most of your engagement or conversions, it will be important to ensure those users are able to get your app on their home screen and receive push notifications.
+          reasoning += `It sounds like your product is optimized for highly-engaged users, so it's better to optimize to reach fewer highly engaged users than a larger number of less engaged users. To enable that group of passionate users to be highly engagaed it will be important to ensure those users are able to get your app on their home screen and receive push notifications.
 
           Since you don't have the resources to build for two platforms you have two main options: build a native iOS app, or build a Progressive Web App.
 
           If you build an iOS app you will be able to provide a great UX to the iOS users that overcome the friction associated with installing an app. Once they have the app they will likely be highly engaged.
 
-          On the other hand, if you build a web app you will likely be able to reach 4X the number of monthly users (according to ComScore data) due to the lack of install friction, but those users will be less engaged since they do not have an icon on their home screen, or push notifications enabled. If you build a Progressive Web App (rather than a traditional mobile site) you will be able to provide a more app-like experience, and you will be able to prompt Android users to add your web app to their home screen and to enable push notifications. Additionally, with a web app users on all platforms will be able to use your product.
+          On the other hand, if you build a web app you will likely be able to reach 3X the number of monthly users ((<a href='http://www.slideshare.net/VictorKongCisneros/the-2015-us-mobile-app-report-by-comscore/17' target='_blank'>according to ComScore</a>) due to the lack of install friction, but those users will be less engaged since they do not have an icon on their home screen, or push notifications enabled. If you build a Progressive Web App (rather than a traditional mobile site) you will be able to provide a more app-like experience, and you will be able to prompt Android users to add your web app to their home screen and to enable push notifications. Additionally, with a web app users on all platforms will be able to use your product.
 
           The decision between building an iOS app or Progressive Web App really comes down to whether you'd prefer fewer users that are more engaged, or far more users that are on average less engaged, with only the most engaged users adding your web app to their home screen.
 
@@ -370,6 +377,24 @@
           reasoning += `A good web experience will also enable your potential desktop users to access your service. Although mobile is growing extremely quickly, it is also important to not forget about the potential engagement or conversions that can come from the very large number of desktop users.
 
           `;
+        }
+      }
+
+      if (terminatedAt < 2) {
+        if (answers[2]) {
+          reasoning += `Since search traffic or users sharing your content on social networks is important, choosing to build for the web also makes a lot of sense. Requiring users to install an app to see the content shared on social media or via search will drastically limit your ability to grow due to the high friction associated with installing your app so they can access that content.
+
+          `;
+        }
+      }
+
+      if (terminatedAt < 6) {
+        if (answers[6]) {
+          if ([recs.web, recs.webAndAppsButCantAffordApps, recs.webAndiOSAndAndroidOrPWA, recs.PWAButiOSWillBeAProblem, recs.webAndiOSAndPWAAndConsiderAndroid, recs.iOSorPWA].includes(rec)) {
+            reasoning += `Since you have the resources to build for multiple platforms, you may want to consider also building a native iOS app so your most passionate iOS users can install your product and have easy access to it, although it may be more beneficial to your company to focus your resources on improving the web app instead to capture the most value from the large amount of traffic it will drive.
+
+            `;
+          }
         }
       }
 
