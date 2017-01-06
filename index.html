@@ -52,77 +52,172 @@
   </style>
 </head>
 <body>
-  <h1>Should I build an app for that?</h1>
-  <p>The right platform strategy depends entirely on your company. Building iOS and Android apps is attractive but often <i>not the optimal strategy for your product</i>.</p>
-  <p><b>TL;DR</b> - If you take one thing away from this page, it's that native apps are only a good strategy if your product benefits from reaching a smaller number of highly engaged users, but web apps are best for reaching a large number of less engaged users.  In most cases the optimal strategy combines these platforms. Note that most highly successful products (Facebook, Instagram, Google Maps, Twitter etc) use strategies that combine the strengths of the web and native apps.</p>
-  <p>Answer these 8 questions about your product (existing or idea) and this page will show you a detailed report recommending the right platform strategy for you.</p>
-  <p>If you're not sure about any answer feel free to try answering in both ways and then compare the advice!</p>
+  <h1>How can I build a website?</h1>
+  <p>
+    People are always asking what the best way to get involved with coding is. The short (and long) answer is that there are about 1 bajillion ways to get started, so the advice I give is the advice I get from developer friends when I want to learn something new in development as well: pick a project and learn by building it.
+  </p>
+  <p>
+    <a href="https://en.wikipedia.org/wiki/Website">Static websites</a> are cool, <a href="https://en.wikipedia.org/wiki/Web_application">dynamic web apps</a> are even cooler. Both can be a daunting project to take on even if you have a bit of coding experience, when the former is actually a pretty simple thing to make!
+  </p>
+  <p>
+      To help you get past staring at a blank <a href="https://www.sublimetext.com/3">Sublime</a> file, the web development equivalent of staring at a blank Word (or Google) doc when writing a paper, I've written up this quiz. 
+
+  </p>
+  <p>
+      <i> Note: I didn't build this web app myself, I stole it (with permission) from <a href="www.twitter.com/owencm">Owen</a>.</i> <br />
+      <i> Other Note: This is my humble advice, it\'s certainly not Google's opinion or 100% (or even 50%) comprehensive. If you have suggestions/additions feel free to submit a PR on GitHub, or file your complaints as Issues!</i>
+   </p>
+  <p></p>
+
+  <h2> What is your development experience? </h2>
   <table>
     <tr>
       <td class='question-number'>1.</td>
-      <td>Could lots of users get value from using your service or accessing your content only once or twice?
-      <!-- Do you realistically expect a large percentage of your target users will use your product multiple times a week, and do you expect good retention within that group? -->
-      <p class='hint'>Hint: If your users become dramatically more valuable to your product over time, the answer is probably no (e.g. fremium businesses, messaging)</p></td>
+      <td>Do you have a Computer Science (or related) degree?</td>
       <td>
         <input type='checkbox' />
       </td>
     </tr>
     <tr>
       <td class='question-number'>2.</td>
-      <td>Do you expect the vast majority of your users will have plenty of storage space  and data to download a new app?
-      <p class='hint'>Hint: Most users devices are far worse than you may expect. If you&apos;re targeting users in emerging markets the answer is probably no.</p></td>
+      <td>Have you taken 1 or 2 Computer Science classes?</td>
       <td>
         <input type='checkbox' />
       </td>
     </tr>
     <tr>
       <td class='question-number'>3.</td>
-      <td>Is your content highly shareable on social networks, or could a lot of search traffic feasibly be driven to pages within your product?</td>
+      <td>Have you taken 3 or more Computer Science classes</td>
       <td>
         <input type='checkbox' />
       </td>
     </tr>
     <tr>
       <td class='question-number'>4.</td>
-      <td>Could a substantial portion of usage come from users on desktop?</td>
+      <td>Have you built an iOS or Android app?</td>
       <td>
         <input type='checkbox' />
       </td>
     </tr>
     <tr>
       <td class='question-number'>5.</td>
-      <td>Have most of your users already made a significant time commitment, or financial committment to your company?
-      <p class='hint'>Hint: For example, if your product is a counterpart to a physical device they own, or for a bank account they have opened</p>
-      </td>
+      <td>Have you worked with Wordpress or Squarespace?</td>
       <td>
         <input type='checkbox' />
       </td>
     </tr>
     <tr>
       <td class='question-number'>6.</td>
-      <td>Do browsers on Android have all the capabilities you need for the core functionality of your product?
-      <p class='hint'>Hint: On Android, should should assume browsers can provide you access to the camera, microphone, geolocation, accellerometer, offline and push notifications.</p></td>
+      <td>Do you know HTML?</td>
       <td>
         <input type='checkbox' />
       </td>
     </tr>
     <tr>
       <td class='question-number'>7.</td>
-      <td>Do you have enough resources to build for two platforms?</td>
+      <td>Do you know R or Matlab?</td>
       <td>
         <input type='checkbox' />
       </td>
     </tr>
     <tr>
       <td class='question-number'>8.</td>
-      <td>Is your product in a crowded space where the consumer will also want to interact with a number of your competitors?
-      <p class='hint'>Hint: e.g. newspapers, stores etc</p></td>
+      <td>Do you know SQL?</td>
+      <td>
+        <input type='checkbox' />
+      </td>
+    </tr>
+    <tr>
+      <td class='question-number'>9.</td>
+      <td>Do you know Python?</td>
+      <td>
+        <input type='checkbox' />
+      </td>
+    </tr>    
+    <tr>
+      <td class='question-number'>10.</td>
+      <td>Do you know JavaScript?</td>
+      <td>
+        <input type='checkbox' />
+      </td>
+    </tr>
+    <tr>
+      <td class='question-number'>11.</td>
+      <td>Have you worked with the Terminal (/shell/command line)?</td>
+      <td>
+        <input type='checkbox' />
+      </td>
+    </tr>
+    <tr>
+      <td class='question-number'>12.</td>
+      <td>Have you used Markdown or LaTeX?</td>
+      <td>
+        <input type='checkbox' />
+      </td>
+    </tr>
+    <tr>
+      <td class='question-number'>13.</td>
+      <td>Have you ever programmed in any capacity before?</td>
       <td>
         <input type='checkbox' />
       </td>
     </tr>
   </table>
-  <input type='submit' value='Generate platform strategy advice' />
+
+  <h2> What is your goal? </h2>
+  <table>
+    <tr>
+      <td class='question-number'>14.</td>
+      <td>To see what programming is all about.</td>
+      <td><input type='checkbox' /></td>
+    </tr>
+    <tr>
+      <td class='question-number'>15.</td>
+      <td>To build a static website for fun.</td>
+      <td><input type='checkbox' /></td>
+    </tr>
+    <tr>
+      <td class='question-number'>16.</td>
+      <td>To build a personal or portfolio website.</td>
+      <td><input type='checkbox' /></td>
+    </tr>
+    <tr>
+      <td class='question-number'>17.</td>
+      <td>To build a game or service.</td>
+      <td><input type='checkbox' /></td>
+    </tr>
+    <tr>
+      <td class='question-number'>18.</td>
+      <td>To build an online shop.</td>
+      <td><input type='checkbox' /></td>
+    </tr>
+  </table>
+
+  <h2> What is your budget? </h2>
+  <table>
+    <tr>
+      <td class='question-number'>19.</td>
+      <td>Free (<$1 per month).</td>
+      <td><input type='checkbox' /></td>
+    </tr>
+    <tr>
+      <td class='question-number'>20.</td>
+      <td>Low (~$10 per month)</td>
+      <td><input type='checkbox' /></td>
+    </tr>
+    <tr>
+      <td class='question-number'>21.</td>
+      <td>Mid (~$25 per month)</td>
+      <td><input type='checkbox' /></td>
+    </tr>
+    <tr>
+      <td class='question-number'>22.</td>
+      <td>High (~$100 per month)</td>
+      <td><input type='checkbox' /></td>
+    </tr>
+  </table>
+
+  <input type='submit' value='Generate advice' />
   <h2 id='summary'></h2>
   <p id='reasoning'></p>
   <p id='share'></p>
